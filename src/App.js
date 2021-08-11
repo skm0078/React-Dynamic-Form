@@ -1,36 +1,30 @@
-import FormData from "./frormData.json";
+import FormData from './formData.json'
+import { useState, useEffect } from 'react'
+import Element from './components/Element'
 
 function App() {
+  const [elements, setElements] = useState(null)
+  useEffect(() => {
+    setElements(FormData)
+  }, [])
   console.log(FormData)
+  const { formName, formDesc, data: fields } = elements ?? {}
   return (
-    <div className="App container">
+    <div className='App container'>
+      <h3>{formName}</h3>
+      <blockquote>
+        <h5>{formDesc}</h5>
+      </blockquote>
       <form>
-  <div className="mb-3">
-    <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-    <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
-  </div>
-  <div className="mb-3">
-    <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-    <input type="password" className="form-control" id="exampleInputPassword1" />
-  </div>
-  <div className="mb-3 form-check">
-    <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-    <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" className="btn btn-primary">Submit</button>
-
- <select className="form-select" aria-label="Default select example">
-  <option >Open this select menu</option>
-  <option>One</option>
-  <option>Two</option>
-  <option>Three</option>
-</select>
-
-
-</form>
+        {fields
+          ? fields.map((field, i) => <Element key={i} field={field} />)
+          : null}
+        <button type='submit' className='btn btn-primary'>
+          Submit
+        </button>
+      </form>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
