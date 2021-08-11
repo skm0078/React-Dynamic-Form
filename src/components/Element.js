@@ -9,6 +9,7 @@ const Element = ({
     fieldlabel,
     fieldrules,
     options,
+    fieldvalue = '',
   },
 }) => {
   switch (fieldtype) {
@@ -19,6 +20,7 @@ const Element = ({
           fieldplaceholder={fieldplaceholder}
           fieldlabel={fieldlabel}
           fieldrules={fieldrules}
+          fieldvalue={fieldvalue}
         />
       )
     case 'select':
@@ -28,6 +30,7 @@ const Element = ({
           fieldplaceholder={fieldplaceholder}
           fieldlabel={fieldlabel}
           fieldrules={fieldrules}
+          fieldvalue={fieldvalue}
           fieldoptions={options}
         />
       )

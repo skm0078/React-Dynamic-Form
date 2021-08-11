@@ -1,7 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { FormContext } from '../../FormContext'
 
-const Input = ({ fieldname, fieldplaceholder, fieldlabel, fieldrules }) => {
-  console.log(fieldrules[0].message)
+const Input = ({
+  fieldname,
+  fieldplaceholder,
+  fieldlabel,
+  fieldrules,
+  fieldvalue,
+}) => {
+  const { handleChange } = useContext(FormContext)
+  //handleChange()
+  // console.log(fieldrules[0].message)
   return (
     <div className='mb-3'>
       <label htmlFor='exampleInputEmail1' className='form-label'>
@@ -15,6 +24,8 @@ const Input = ({ fieldname, fieldplaceholder, fieldlabel, fieldrules }) => {
         aria-describedby='emailHelp'
         placeholder={fieldplaceholder ? fieldplaceholder : ''}
         required={fieldrules[0].required}
+        value={fieldvalue}
+        onChange={(event) => handleChange(fieldname, event)}
       />
       <div id='emailHelp' className='form-text'>
         {fieldrules[0].message}
