@@ -20,6 +20,15 @@
         "fieldtype": "select",
         "options": ["Assets","Liabilities"],
         "fieldvalue":""
+     },
+     {
+      "fieldname": "MultiAccountType",
+      "fieldplaceholder": "",
+      "fieldlabel":"Multi Account Type",
+      "fieldrules":[],
+       "fieldtype": "multiselect",
+       "options": ["Loan","Bad Debt","Assets","Liabilities"],
+       "fieldvalue":[]
      }
      ]
   }
