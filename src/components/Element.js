@@ -9,7 +9,7 @@ const Element = ({
     fieldlabel,
     fieldrules,
     options,
-    fieldvalue = '',
+    fieldvalue,
   },
 }) => {
   switch (fieldtype) {

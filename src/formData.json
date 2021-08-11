@@ -9,15 +9,17 @@
        "fieldrules":[
          {"required": true, "message": "This field is required"}
          ],
-         "fieldtype": "text"
+         "fieldtype": "text",
+         "fieldvalue":""
      },
      {
        "fieldname": "AccountType",
        "fieldplaceholder": "",
        "fieldlabel":"Account Type",
        "fieldrules":[],
-         "fieldtype": "select",
-         "options": ["Assets","Liabilities"]
+        "fieldtype": "select",
+        "options": ["Assets","Liabilities"],
+        "fieldvalue":""
      }
      ]
   }

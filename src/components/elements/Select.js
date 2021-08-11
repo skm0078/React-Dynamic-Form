@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { FormContext } from '../../FormContext'
 
 const Select = ({
   fieldname,
   fieldplaceholder,
   fieldlabel,
   fieldoptions,
-  fieldvalue,
+  fieldvalue
 }) => {
+  const { handleChange } = useContext(FormContext)
+
   return (
     <>
       <label className='form-label'>{fieldlabel}</label>
@@ -15,9 +18,11 @@ const Select = ({
         aria-label='Default select example'
         name={fieldname}
         placeholder={fieldplaceholder}
-        fieldvalue={fieldvalue}
+        value={fieldvalue ? fieldvalue : fieldoptions[0]}
+        onChange={(event) => handleChange(fieldname, event)}
       >
-        <option disabled>Select Menu Options</option>
+        <option disabled
+        >Select Menu Options</option>
         {fieldoptions.length > 0 &&
           fieldoptions.map((option, i) => <option key={i}>{option}</option>)}
       </select>
